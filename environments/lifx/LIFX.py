@@ -81,13 +81,13 @@ class LIFX(object):
             "power": "off",
         }
 
-        # response = requests.put('https://api.lifx.com/v1/lights/all/state', 
-        #                         data=payload, headers=headers)
-        # print(response.json())
+        response = requests.put('https://api.lifx.com/v1/lights/all/state', 
+                                data=payload, headers=headers)
+        print(response.json())
 
-        url = 'https://api.lifx.com/v1/lights/all/state'
-        req = UrlRequest(url, req_body=payload, req_headers = headers, method='POST')
-        print(req)  
+        # url = 'https://api.lifx.com/v1/lights/all/state'
+        # req = UrlRequest(url, req_body=payload, req_headers = headers, method='POST')
+        # print(req)  
 
     def power_on(self):
         token = self.token
@@ -96,15 +96,15 @@ class LIFX(object):
 
         payload = {"power": "on"}
         print(str(payload), str(headers))
-        # response = requests.put('https://api.lifx.com/v1/lights/all/state', 
-        #                         data=payload, headers=headers)
-        # print(response.json())
+        response = requests.put('https://api.lifx.com/v1/lights/all/state', 
+                                data=payload, headers=headers)
+        print(response.json())
 
-        url = 'https://api.lifx.com/v1/lights/all/state'
-        req = UrlRequest(url,req_body=str(payload), req_headers = str(headers), 
-        method="POST", ca_file=certifi.where())
-        # req.wait(delay=7)
-        print(req.result)  
+        # url = 'https://api.lifx.com/v1/lights/all/state'
+        # req = UrlRequest(url,req_body=str(payload), req_headers = str(headers), 
+        # method="POST", ca_file=certifi.where())
+        # # req.wait(delay=7)
+        # print(req.result)  
 
         
 
