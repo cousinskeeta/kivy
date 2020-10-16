@@ -28,7 +28,7 @@ class DemoBox(BoxLayout):
         self.txt.bind(text=self.on_text)
 
         btn = Button(text="Power ON", background_color=(1,1,1,1))
-        btn.bind(on_press=self.power_on)
+        btn.bind(on_press=self.on)
 
         btn2 = Button(text="Power OFF")
         btn2.bind(on_press=self.off)
@@ -114,15 +114,15 @@ class DemoBox(BoxLayout):
         self.handler.habesha_nation()
         print('Preset: habesha nation')
 
-    def power_on(self, instance):
-            token = self.txt.text
-            headers = {"Content-Type": "application/json",
-                        "Authorization": "Bearer %s" % token}
-            payload = {"power": "on"}
-            url = 'https://api.lifx.com/v1/lights/all/state'
-            req = UrlRequest(url,req_body=payload, req_headers = headers, method="PUT",ca_file=certifi.where())
-            # req.wait(delay=7)
-            print(req.result) 
+    # def power_on(self, instance):
+    #         token = self.txt.text
+    #         headers = {"Content-Type": "application/json",
+    #                     "Authorization": "Bearer %s" % token}
+    #         payload = {"power": "on"}
+    #         url = 'https://api.lifx.com/v1/lights/all/state'
+    #         req = UrlRequest(url,req_body=str(payload), req_headers = str(headers), method="PUT",ca_file=certifi.where())
+    #         # req.wait(delay=7)
+    #         print(req.result) 
 
 class DemoApp(App):
     def build(self):
